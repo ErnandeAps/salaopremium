@@ -1,0 +1,30 @@
+<html>
+<head>
+
+<script language="VBScript">
+SUB Print()
+OLECMDID_PRINT = 6
+OLECMDEXECOPT_DONTPROMPTUSER = 2
+OLECMDEXECOPT_PROMPTUSER = 1
+'ACA no caso de usar frames,
+'enfocamos o frame a imprimir:
+
+'window.parent.frames.main.document.body.focus()
+window.document.body.focus()
+
+'Chamamos ao comando de Impressão Print
+
+on error resume next
+call IEWB.ExecWB (OLECMDID_PRINT, -1)
+
+if err.number <> 0 then
+    alert "Não se pode imprimir"
+end if
+
+END SUB
+</script>
+
+</head>
+<body>
+
+<object id="IEWB" width="0" height="0" classid="clsid:8856F961-340A-11D0-A96B-00C04FD705A2" VIEWASTEXT></object>

@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+ <TITLE>New Document</TITLE>
+</HEAD>
+<BODY>
+  <script language="javascript" type="text/javascript">
+function PrintElementID(id, pg) {
+ var oPrint, oJan;
+ oPrint = window.document.getElementById(id).innerHTML;
+ oJan = window.open(pg);
+ oJan.document.write(oPrint);
+ oJan.history.go();
+ oJan.window.print();
+}
+</BODY>
+</HTML>

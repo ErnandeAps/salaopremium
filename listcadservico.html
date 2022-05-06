@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cadastro de usuários</title>
+<meta name="generator" content="WYSIWYG Web Builder 12 - http://www.wysiwygwebbuilder.com">
+<link href="eayseservice.css" rel="stylesheet">
+<link href="listcadservico.css" rel="stylesheet">
+</head>
+<body>
+<div id="space"><br></div>
+<div id="container">
+<div id="wb_Shape1" style="position:absolute;left:89px;top:30px;width:542px;height:421px;z-index:0;">
+<img src="images/img0013.png" id="Shape1" alt="" style="width:542px;height:421px;"></div>
+<div id="wb_Image1" style="position:absolute;left:558px;top:381px;width:45px;height:50px;z-index:1;">
+<a href="./cadservico"><img src="sair.jpeg" id="Image1" alt=""></a></div>
+<!-- Lista de usuários -->
+<div id="Html1" style="position:absolute;left:100px;top:41px;width:520px;height:327px;overflow:auto;z-index:2">
+<!--
+@ Contém os cَdigos que exibirمo os produtos existentes no banco de dados em forma de tabela e os
+@ controle necessلrios a sua manipulaçمo;
+
+@ Copyright (c) 2008 Aline Lima, Aline Magalhمes, Andréa Lopes, Frederico Pimentel.
+@ Este documento permite cَpia, distribuiçمo e/ou modificaçمo garantida sob os termos da Lincença
+@ Pْblica Geral Menor do GNU conforme publicada pela Free Software Foundation; tanto a versمo 2.1 da
+@ Licença quanto as versُes posteriores. Esta biblioteca é distribuيdo na expectativa de que seja
+@ ْtil, porém, SEM NENHUMA GARANTIA; nem mesmo a garantia implيcita de COMERCIABILIDADE OU ADEQUAاأO A
+@ UMA FINALIDADE ESPECحFICA. Consulte a Licença Pْblica Geral Menor do GNU para mais detalhes.
+-->
+
+<html>
+<head>
+<script src="bibliotecaAjax.js"></script>
+<link rel="stylesheet" href="estiloDataGrid.css">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DataGrid</title>
+</head>
+<body>
+<h2></h2>
+<div align="center">
+<div id="avisos">
+<form name="formulario">
+	<table id="minhaTabela" cellpadding="1" cellspacing="1">
+		<tr>
+			<td colspan="5" id="titulo"><strong>LISTA DE SERVIاOS</strong></td>
+		</tr>
+		<tr id="cabecalho">
+			<td id="codigo"><strong>Cَdigo</strong></td>
+			<td id="descricao"><strong>Descriçمo:</strong></td>
+			<td id="valor"><strong>Valor</strong></td>
+			<td id="editar"><strong>&nbsp;</strong></td>
+			<td id="excluir"><strong>&nbsp;</strong></td>
+		</tr>
+<?php
+$con = mysql_connect('localhost', 'root', '') or die ("Erro de conexمo");
+$res1 = mysql_select_db('easyserv_db') or die ("Banco de dados inexistente");
+$res = mysql_query("select * from tbcadservico order by id ASC");
+$total = mysql_num_rows($res);
+
+for($i=0; $i<$total; $i++){
+	$dados = mysql_fetch_row($res);
+	$codigo = $dados[0];
+	$descricao = $dados[1];
+	$valor = $dados[2];
+
+	$idLinha = "linha$i";
+	echo '<tr id="'.$idLinha.'">';
+	echo '<td class="linhas" align="center">'.$codigo.'</td>';
+	echo "<td class=\"linhas\">$nome</td>";
+	echo "<td class=\"linhas\">$perfil</td>";
+	echo "<td class=\"linhas\"><a href=\"cadservico.php?Id=$codigo\" onclick=\"EditarLinha('$id');\"><img src=\"images/editar.gif\" alt=\"Editar\" title=\"Editar\"></a></td>";
+	echo "<td class=\"linhas\"><a href=\"exccadservico.php?Id=$codigo\" onclick=\"ExcluirLinha('$id');\"><img src=\"images/excluir.gif\" alt=\"Excluir\" title=\"Excluir\"></a></td>";
+}
+?>
+<tr>
+
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
+</div>
+</div>
+</body>
+</html>

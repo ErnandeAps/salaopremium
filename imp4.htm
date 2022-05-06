@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+ <TITLE>New Document</TITLE>
+</HEAD>
+<BODY>
+
+  var iframe = document.createElement('iframe');
+iframe.src = urlOfFile;
+iframe.style.display = "none";
+
+var iFrameLoaded = function() {
+  iframe.contentWindow.print();
+  iframe.parentNode.removeChild(iframe);
+};
+
+if (iframe.attachEvent) // Internet Explorer
+  iframe.attachEvent('onload', iFrameLoaded);
+else if (iframe.addEventListener) // Outros navegadores modernos
+  iframe.addEventListener('load', iFrameLoaded, false);
+else // Outros navegadores
+  iframe.onload = iFrameLoaded;
+
+document.body.appendChild(iframe);
+</BODY>
+</HTML>

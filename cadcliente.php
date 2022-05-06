@@ -1,0 +1,84 @@
+<?php include('./script/connections/Connection.php'); ?>
+
+<?php
+$Id = $_GET['Id'];
+
+if ($Id<>'0') {
+   $query_Rsdb = "SELECT * FROM tbcadcliente WHERE id=$Id";
+   $res1 = mysqli_select_db($conexao,'easyserv_db') or die ("Banco de dados inexistente");
+   $Rsdb = mysqli_query($conexao, $query_Rsdb) or die(mysql_error());
+   $escrever = mysqli_fetch_array($Rsdb);
+   $nome = $escrever['nome'];
+   $endereco = $escrever['endereco'];
+   $bairro = $escrever['bairro'];
+   $cidade = $escrever['cidade'];
+   $uf = $escrever['uf'];
+   $fone = $escrever['fone'];
+   $celular = $escrever['celular'];
+   $rg = $escrever['rg'];
+   $email = $escrever['email'];
+   
+} else {
+   $nome = "";
+   $endereco = "";
+   $bairro = "";
+   $cidade = "";
+   $uf = "";
+   $fone = "";
+   $celular = "";
+   $rg = "";
+   $email = "";
+   //$valunit ="0.00";
+}
+mysqli_close($conexao);
+//$nome = $escrever['nome'];
+//mysql_close($conexao);
+?>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>S G E - Sistema de gestão de serviços</title>
+<meta name="generator" content="WYSIWYG Web Builder 12 - http://www.wysiwygwebbuilder.com">
+<link href="eayseservice.css" rel="stylesheet">
+<link href="cadcliente.css" rel="stylesheet">
+</head>
+<body>
+<div id="space"><br></div>
+<div id="container">
+<div id="wb_Shape1" style="position:absolute;left:72px;top:43px;width:576px;height:415px;z-index:20;">
+<img src="images/img0014.png" id="Shape1" alt="" style="width:576px;height:415px;"></div>
+<div id="wb_Text1" style="position:absolute;left:144px;top:70px;width:432px;height:20px;text-align:center;z-index:21;">
+<span style="color:#3F9C03;font-family:Verdana;font-size:17px;"><strong>Cadastro de Clientes</strong></span></div>
+<div id="wb_Image1" style="position:absolute;left:582px;top:392px;width:45px;height:50px;z-index:22;">
+<a href="../telaprin.html"><img src="sair.jpeg" id="Image1" alt=""></a></div>
+<div id="wb_Image2" style="position:absolute;left:529px;top:392px;width:48px;height:48px;z-index:23;">
+<a href="./script/listcadcliente.php"><img src="images/localizar.jpg" id="Image2" alt=""></a></div>
+<div id="wb_Form1" style="position:absolute;left:104px;top:90px;width:409px;height:352px;z-index:24;">
+<form name="frmcadcliente" method="post" action="./script/addcadcliente.php?Id=<?php echo $Id ?>" enctype="multipart/form-data" id="Form1">
+<label for="Editbox1" id="Label1" style="position:absolute;left:29px;top:15px;width:50px;height:16px;line-height:16px;z-index:0;">Nome</label>
+<input type="text" id="Editbox1" style="position:absolute;left:95px;top:15px;width:283px;height:18px;line-height:18px;z-index:1;" name="nome" value="<?php echo $nome ?>" maxlength="50" autocomplete="off" spellcheck="false">
+<label for="Editbox2" id="Label2" style="position:absolute;left:29px;top:46px;width:57px;height:16px;line-height:16px;z-index:2;">Endereço</label>
+<input type="text" id="Editbox2" style="position:absolute;left:95px;top:46px;width:255px;height:18px;line-height:18px;z-index:3;" name="endereco" value="<?php echo $endereco ?>" maxlength="40" spellcheck="false">
+<label for="Editbox3" id="Label3" style="position:absolute;left:29px;top:77px;width:50px;height:16px;line-height:16px;z-index:4;">Bairro</label>
+<input type="text" id="Editbox3" style="position:absolute;left:95px;top:77px;width:178px;height:18px;line-height:18px;z-index:5;" name="bairro" value="<?php echo $bairro ?>" maxlength="30" spellcheck="false">
+<label for="Editbox4" id="Label4" style="position:absolute;left:29px;top:108px;width:50px;height:16px;line-height:16px;z-index:6;">Cidade</label>
+<input type="text" id="Editbox4" style="position:absolute;left:95px;top:108px;width:149px;height:18px;line-height:18px;z-index:7;" name="cidade" value="<?php echo $cidade ?>" maxlength="30" spellcheck="false">
+<label for="Editbox5" id="Label5" style="position:absolute;left:29px;top:139px;width:50px;height:16px;line-height:16px;z-index:8;">UF</label>
+<input type="text" id="Editbox5" style="position:absolute;left:95px;top:139px;width:27px;height:18px;line-height:18px;z-index:9;" name="uf" value="<?php echo $uf ?>" maxlength="2" autocomplete="off" spellcheck="false">
+<label for="Editbox6" id="Label6" style="position:absolute;left:29px;top:170px;width:50px;height:16px;line-height:16px;z-index:10;">Celular</label>
+<input type="text" id="Editbox6" style="position:absolute;left:95px;top:170px;width:226px;height:18px;line-height:18px;z-index:11;" name="celular" value="<?php echo $celular ?>" maxlength="12" spellcheck="false">
+<label for="Editbox7" id="Label7" style="position:absolute;left:29px;top:201px;width:55px;height:16px;line-height:16px;z-index:12;">Aniversario</label>
+<input type="text" id="Editbox7" style="position:absolute;left:95px;top:201px;width:40px;height:18px;line-height:18px;z-index:13;" name="fone" value="<?php echo $fone ?>" maxlength="12" spellcheck="false">
+<label for="Editbox8" id="Label8" style="position:absolute;left:29px;top:232px;width:50px;height:16px;line-height:16px;z-index:14;">RG/CPF</label>
+<input type="text" id="Editbox8" style="position:absolute;left:95px;top:232px;width:226px;height:18px;line-height:18px;z-index:15;" name="rg" value="<?php echo $rg ?>" maxlength="20" spellcheck="false">
+<label for="Editbox9" id="Label9" style="position:absolute;left:29px;top:263px;width:50px;height:16px;line-height:16px;z-index:16;">Email</label>
+<input type="text" id="Editbox9" style="position:absolute;left:95px;top:263px;width:290px;height:18px;line-height:18px;z-index:17;" name="email" value="<?php echo $email ?>" maxlength="30" spellcheck="false">
+<input type="submit" id="Button1" name="btincluir" value="Salvar" style="position:absolute;left:115px;top:302px;width:82px;height:35px;z-index:18;">
+<input type="reset" id="Button2" name="btlimpar" value="Limpar" style="position:absolute;left:211px;top:302px;width:82px;height:35px;z-index:19;">
+</form>
+</div>
+</div>
+</body>
+</html>

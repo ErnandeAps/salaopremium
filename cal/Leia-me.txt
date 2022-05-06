@@ -1,0 +1,84 @@
+﻿////////////////////////////////////////////////////////
+/ Editado por: Flavio				       /
+/ Email: projetos@helcai.com			       /
+/ Site: www.helcai.com				       /
+/ Data: 10/07/2010			               /
+/						       /
+/ Observações sobre as edições no final deste arquivo. /
+/						       /
+////////////////////////////////////////////////////////
+
+######################################################
+# INTEGRAÇÃO COM BANCO DE DADOS                      #
+# Autor: Cleiton Ferreira                            #
+# E-Mail: cf-design@hotmail.com                      #
+# DATA: 01/07/2009                                   #
+# SITE: www.rondohost.com.br
+# NOTA: Não retire os creditos da fonte, OBRIGADO.   #
+######################################################
+
+   CALENDAR desenvolvido 21/12/2005 por ALEX MENDES SILVA (GNU General Public License),
+Eu Cleiton Ferreira retirei sua fonte no PHPbrasil, Contendo os seguintes arquivos.
+
+°calendar.php---> Exibe o calendario, Até aquele momento só exibia um calendario!
+°functions.php---> As funções relativas ao Calendar.php
+
+A minha participação que espero poder ajudar alguem aqui da comunidade, Foi a seguinte...
+
+
+°conectdb.php--> Faz a conexão com banco de dados!
+
+°enviar.php-->Formulario para cadastro da agenda, Envia para upload.php!
+
+°upload.php-->Faz o insert na tabela agenda do banco de dados,(posta no banco de dados).
+
+°excluir.php-->Como o nome já diz! Esse é responssavel por apagar os registro no DB!
+
+°janela_agenda.php-->Janela que exibe em detalhes a postagem, quando clicado na data com Evento.
+
+°Agenda.sql-->É a tabela usada no banco de dados!
+
+............
+
+ALTERAÇÕES......
+
+Altere o arquivo conectdb.php de acordo com seu banco de dados.
+
+$conexao = mysql_connect ("localhost","usuario","senha") OR die (mysql_error());
+mysql_select_db ("agenda")  OR die (mysql_error());
+
+
+O arquivo functions.php pode ser alterado, Mais tome cuidado, Pode danificar o sistema...
+
+...................
+
+Pessoal um abraço a todos, Podia ficar escrevendo mais, Mais já está tarde :P...
+
+visitem, Meu site... www.novorafest.com.br
+Planos de Hospedagem WEB=== ILIMITADO, trafego,disco,sql,pop3,fantastico, TUDO ILIMITADO R$15.00 Mensais
+Fone: (69)9256-2075
+e-mail: cf-design@hotmail.com
+site:  wwww.rondohost.com.br
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+Edições feitas por Flavio:
+* Sql -> Somente inclui um avento teste. Contudo, continua valendo as orientações do Cleiton.
+
+* upload.php -> Centralizei a informação e inseri um botão voltar feito com javascript; adicionei alguns comandos css.
+
+* excluir.php -> Alterei o location. Assim, ao ser feita a deleção na enviar.php a página volta para a enviar.php fazendo com que fique com um tipo de "reflesh" apresentando o resultado da deleção instantãneamente.
+
+* janela_agenda.php -> Editei algumas coisas na aparencia e inseri um botão voltar feito com javascript; adicionei alguns comandos css.
+
+* calendar.php -> Editei algumas coisas na aparencia; Editei o link dos eventos. Antes a indicação (link) dos eventos ficavam em azul normal, agora os eventos ficam com a fonte em negrito e com uma underline.
+
+* functions.php -> Adicionei alguns comandos css nos códigos referentes a edição feita no página calendar.php.
+
+Obs.: Somente as páginas calendar.php e enviar.php são acessadas diretamente. As demais são acessadas atraves das acima citadas. Ex.: Se a página janela_agenda.php for acessada diretamente vai dar erro porque ela precisa da indicação do evento (?id=$id) fornecida pela página calendar.php. E a página calendar.php só funciona se tiver algum registro no banco. Caso der erro ao acessá-la, vá até a página enviar.php e crie um evento na data do dia (today), pois fica mais facil a visualização para testes. Depois volte para a página calendar.php.
+
+Espero que gostem das mudanças.
+Até+
